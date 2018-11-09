@@ -1,0 +1,17 @@
+allure-pytest==2.5.3
+allure-python-commons==2.5.3
+atomicwrites==1.2.1
+attrs==18.2.0
+certifi==2018.10.15
+chardet==3.0.4
+colorama==0.4.0
+idna==2.7
+more-itertools==4.3.0
+pluggy==0.8.0
+py==1.7.0
+pytest==3.10.0
+requests==2.20.0
+requests-mock==1.5.2
+selenium==3.141.0
+six==1.11.0
+urllib3==1.24.1
