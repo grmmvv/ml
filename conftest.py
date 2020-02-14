@@ -2,7 +2,6 @@ import allure
 import pytest
 import requests
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
 
 from helpers.urls import URL
 
@@ -11,10 +10,18 @@ ACCESS_KEY = ''  # в идеале нужно его хранить не зде�
 
 @pytest.fixture
 def driver():
-    options = Options()
-    options.headless = True
-    with allure.step('Запускаем локальный инстанс браузера'):
-        driver = webdriver.Firefox(options=options)
+    desired_caps = {
+        'browserName': 'chrome',
+        'version': '79.0',
+        'enableVNC': False,
+        'enableVideo': False,
+        'sessionTimeout': '6m',
+    }
+    driver = webdriver.Remote(
+        command_executor=f'http://localhost:4444/wd/hub',
+        desired_capabilities=desired_caps,
+        options=None,
+    )
     driver.maximize_window()
     yield driver
     driver.close()
