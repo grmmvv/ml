@@ -1,9 +1,9 @@
-name: Python application
+name: Self-hosted runners test
 
 on: [push]
 
 jobs:
-  build:
+  pytest:
 
     runs-on: ubuntu-latest
 
@@ -14,10 +14,11 @@ jobs:
       with:
         python-version: 3.7
     - name: Install dependencies
+      env:
+        PIPENV_NOSPIN: 1
       run: |
         python -m pip install --upgrade pip
         python -m pip install --upgrade pipenv
         pipenv install
     - name: Test with pytest
-      run: |
-        pytest
+      run: pipenv run pytest
