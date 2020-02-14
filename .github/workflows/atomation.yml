@@ -14,7 +14,7 @@ jobs:
       with:
         python-version: 3.7
     - name: Istall Selenoid
-      run: curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start
+      run: curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start -q
     - name: Install dependencies
       env:
         PIPENV_NOSPIN: 1
